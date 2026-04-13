@@ -6,4 +6,8 @@ resource "scaleway_instance_server" "bastion" {
   type              = "DEV1-S"
   security_group_id = scaleway_instance_security_group.bastion.id
   ip_id             = scaleway_instance_ip.bastion.id
+
+  private_network {
+    pn_id = scaleway_vpc_private_network.privnet01.id
+  }
 }

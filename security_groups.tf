@@ -16,7 +16,7 @@ resource "scaleway_instance_security_group" "bastion" {
     content {
       action    = "accept"
       ip_range  = inbound_rule.value
-      port      = "22"
+      port      = 22
       protocol  = "TCP"
     }
   }
