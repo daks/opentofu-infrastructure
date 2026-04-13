@@ -6,8 +6,8 @@ locals {
   }
 }
 
-resource "scaleway_instance_security_group" "bastion" {
-  name                    = "bastion"
+resource "scaleway_instance_security_group" "external-ssh-access" {
+  name                    = "external SSH access"
   inbound_default_policy  = "drop"
   outbound_default_policy = "accept"
 
