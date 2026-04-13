@@ -6,16 +6,20 @@ locals {
   }
 }
 
-resource "scaleway_instance_security_group" "ssh" {
-  name                    = "ssh"
+resource "scaleway_instance_security_group" "bastion" {
+  name                    = "bastion"
   inbound_default_policy  = "drop"
   outbound_default_policy = "accept"
 
-  inbound_rule {
-    action    = "accept"
-    port      = "22"
-    protocol  = "TCP"
+  dynamic "inbound_rule" {
+    for_each = var.allowed_ips
+    content {
+      action    = "accept"
+      ip_range  = inbound_rule.value
+      port      = "22"
+      protocol  = "TCP"
+    }
   }
 }
 
-resource "scaleway_instance_ip" "debian-13" {}
+resource "scaleway_instance_ip" "bastion" {}
