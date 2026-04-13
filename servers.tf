@@ -10,6 +10,10 @@ resource "scaleway_instance_server" "bastion" {
   private_network {
     pn_id = scaleway_vpc_private_network.private-ssh.id
   }
+
+  user_data = {
+    cloud-init = file("./cloud-init.yml")
+  }
 }
 
 resource "scaleway_instance_server" "web" {

@@ -1,0 +1,5 @@
+#cloud-config
+users:
+  - name: sshuser
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKejq+f9WtpKkX4vmnb/mgPHdVHwl2xeie16Wqqey1j2
