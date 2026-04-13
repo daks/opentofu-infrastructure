@@ -1,3 +1,5 @@
+# Scaleway datacenter definition
+
 terraform {
   required_providers {
     scaleway = {
@@ -5,4 +7,8 @@ terraform {
     }
   }
   required_version = ">= 0.13"
+}
+
+provider "scaleway" {
+  zone            = "fr-par-1"
 }
