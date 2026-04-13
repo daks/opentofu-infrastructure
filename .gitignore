@@ -1,5 +1,7 @@
+# dotenv
+.env
+
+# terraform/opentofu
 .terraform/
-*.tfvars
 *.tfstate
 *.tfstate.backup
-*.swp
