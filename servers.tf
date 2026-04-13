@@ -11,3 +11,13 @@ resource "scaleway_instance_server" "bastion" {
     pn_id = scaleway_vpc_private_network.private-ssh.id
   }
 }
+
+resource "scaleway_instance_server" "web" {
+  name              = "web"
+  image             = data.scaleway_instance_image.debian-13.id
+  type              = "DEV1-S"
+
+  private_network {
+    pn_id = scaleway_vpc_private_network.private-ssh.id
+  }
+}
