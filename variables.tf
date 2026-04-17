@@ -5,10 +5,6 @@ variable "allowed_ips" {
   default = ["127.0.0.1/32"]
 }
 
-variable "ssh_username" {
-  type = string
-}
-
-variable "ssh_auth_key" {
-  type = string
+variable "cloud-init" {
+  type = map(any)
 }
