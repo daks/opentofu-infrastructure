@@ -1,4 +1,12 @@
 # Scaleway server definitions
+data "template_file" "cloud-init-data" {
+   template = "${file("${path.module}/cloud-init.tpl")}"
+
+   vars = {
+       ssh_username = var.ssh_username
+       ssh_auth_key = var.ssh_auth_key
+   }
+}
 
 resource "scaleway_instance_server" "bastion" {
   name              = "bastion"
@@ -12,7 +20,7 @@ resource "scaleway_instance_server" "bastion" {
   }
 
   user_data = {
-    cloud-init = file("./cloud-init.yml")
+    cloud-init = "${data.template_file.cloud-init-data.rendered}"
   }
 }
 
