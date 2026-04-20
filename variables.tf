@@ -8,3 +8,11 @@ variable "allowed_ips" {
 variable "cloud-init" {
   type = map(any)
 }
+
+variable "bastion-image" {
+  type = string
+}
+
+variable "web-image" {
+  type = string
+}

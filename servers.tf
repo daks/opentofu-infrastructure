@@ -8,7 +8,7 @@ locals {
 
 resource "scaleway_instance_server" "bastion" {
   name              = "bastion"
-  image             = data.scaleway_instance_image.debian-13.id
+  image             = data.scaleway_instance_image.bastion.id
   type              = "DEV1-S"
   security_group_id = scaleway_instance_security_group.external-ssh-access.id
   ip_id             = scaleway_instance_ip.bastion.id
@@ -24,7 +24,7 @@ resource "scaleway_instance_server" "bastion" {
 
 resource "scaleway_instance_server" "web" {
   name              = "web"
-  image             = data.scaleway_instance_image.debian-13.id
+  image             = data.scaleway_instance_image.web.id
   type              = "DEV1-S"
 
   private_network {

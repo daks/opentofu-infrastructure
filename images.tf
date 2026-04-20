@@ -1,6 +1,11 @@
 # Scaleway images definitions
 
-## sys base
-data "scaleway_instance_image" "debian-13" {
-  name = "debian-13-2026-04-15-1019"
+## bastion base
+data "scaleway_instance_image" "bastion" {
+  name = var.bastion-image
+}
+
+## web base
+data "scaleway_instance_image" "web" {
+  name = var.web-image
 }
